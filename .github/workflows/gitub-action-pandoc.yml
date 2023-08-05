@@ -6,6 +6,11 @@ jobs:
   convert_via_pandoc:
     runs-on: ubuntu-latest
     steps:
+      # Repository auschecken, damit Workflow es nutzen kann
+      - uses: action/checkout@v3
+
+      # Mit Pandoc README.md in README.pdf umwandeln
+      # args werden an pandoc-Befehl angehängt
       - uses: docker://pandoc/core
         with:
-          args: "--help" # gets appended to pandoc command
+          args: "README.md -o README.pdf"
