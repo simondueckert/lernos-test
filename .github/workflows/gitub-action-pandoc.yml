@@ -7,10 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Repository auschecken, damit Workflow es nutzen kann
-      - name: Checkout
-        uses: action/checkout@v3
-        with:
-          path: main
+      - uses: actions/checkout@v3
 
       # Mit Pandoc README.md in README.pdf umwandeln
       # args werden an pandoc-Befehl angehängt
