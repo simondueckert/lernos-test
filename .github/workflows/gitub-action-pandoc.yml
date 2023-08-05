@@ -13,4 +13,4 @@ jobs:
       # args werden an pandoc-Befehl angehängt
       - uses: docker://pandoc/core
         with:
-          args: "README.md -o README.pdf"
+          args: "README.md -o README.epub"
