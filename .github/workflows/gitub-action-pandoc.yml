@@ -13,13 +13,4 @@ jobs:
       # args werden an pandoc-Befehl angehängt
       - uses: docker://pandoc/core
         with:
-          args: "README.md -o README.epub"
-
-      # Repository wieder committen
-      - uses: actions/checkout@v3
-      - run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit -m "epub erstellt"
-          git push
+          args: "README.md -o README.pdf"
