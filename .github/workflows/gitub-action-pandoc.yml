@@ -22,8 +22,8 @@ jobs:
       # - uses: docker://pandoc/latex
       #   with:
       #    args: ""
-
-      ./de/make.sh
+      - name: make
+        run: ./de/make.sh
 
 
       # Geänderte Datein zurück ins Repository committen
