@@ -11,6 +11,7 @@ jobs:
 
       # Delete Old Versions
       - run: rm -rf ./de/lernOS-Template-Guide-de.*
+      - run: rm -rf ./docs/de/*
 
       # Create Microsoft Word Version (docx)
       - uses: docker://pandoc/core
