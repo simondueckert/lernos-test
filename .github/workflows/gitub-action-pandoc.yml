@@ -70,7 +70,7 @@ jobs:
             ./de/src/0_index.md
 
       # Create Web Version (mkdocs)
-      - uses: docker://Tiryoh/actions-mkdocs@v0
+      - uses: docker://squidfunk/mkdocs-material
         with:
           mkdocs_version: 'latest'
           configfile: './de/mkdocs.yml'
