@@ -70,10 +70,10 @@ jobs:
             ./de/src/0_index.md
 
       # Create Web Version (mkdocs)
-      - uses: docker://squidfunk/mkdocs-material
-        with:
-          mkdocs_version: 'latest'
-          configfile: '/de/'
+      # - uses: docker://squidfunk/mkdocs-material
+      #   with:
+      #     mkdocs_version: 'latest'
+      #     configfile: '/de/'
 
       # Geänderte Datein zurück ins Repository committen
       - uses: stefanzweifel/git-auto-commit-action@v4
