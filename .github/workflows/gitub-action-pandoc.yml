@@ -73,7 +73,7 @@ jobs:
       - uses: docker://squidfunk/mkdocs-material
         with:
           mkdocs_version: 'latest'
-          configfile: ./de/mkdocs.yml
+          configfile: 'de/mkdocs.yml'
 
       # Geänderte Datein zurück ins Repository committen
       - uses: stefanzweifel/git-auto-commit-action@v4
