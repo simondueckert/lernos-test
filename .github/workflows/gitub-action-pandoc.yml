@@ -69,6 +69,12 @@ jobs:
             --output=./de/lernOS-Template-Guide-de.pdf
             ./de/src/0_index.md
 
+      # Create Web Version (mkdocs)
+      - uses: docker://Tiryoh/actions-mkdocs@v0
+        with:
+          mkdocs_version: 'latest'
+          configfile: './de/mkdocs.yml'
+
       # Geänderte Datein zurück ins Repository committen
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
