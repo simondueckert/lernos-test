@@ -66,6 +66,7 @@ jobs:
             --toc
             -V
             lang=de-de
+            --template /.pandoc/templates/eisvogel.latex
             --output=./de/lernOS-Template-Guide-de.pdf
             ./de/src/0_index.md
 
