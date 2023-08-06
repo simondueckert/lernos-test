@@ -26,7 +26,8 @@ jobs:
             --resource-path=./de/src
             --number-sections
             --toc
-            -V lang=de-de
+            -V
+            lang=de-de
             --output=./de/lernOS-Template-Guide-de.docx
             ./de/src/0_index.md
 
