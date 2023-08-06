@@ -22,7 +22,11 @@ jobs:
       - uses: docker://pandoc/latex
         with:
           args: >-
+            --standalone
             --resource-path=./de/src
+            --number-sections
+            --toc
+            -V lang=de-de
             --output=./de/lernOS-Template-Guide-de.docx
             ./de/src/0_index.md
 
