@@ -11,9 +11,9 @@ jobs:
 
       # Mit Pandoc README.md in README.pdf umwandeln
       # args werden an pandoc-Befehl angehängt
-      # - uses: docker://pandoc/latex
-      #  with:
-      #    args: "README.md -o README.pdf"
+      - uses: docker://pandoc/latex
+        with:
+         args: "README.md -o README.pdf"
 
       # Delete Old Versions
       # tbd.
@@ -22,8 +22,8 @@ jobs:
       # - uses: docker://pandoc/latex
       #   with:
       #    args: ""
-      - name: make
-        run: ./de/make.sh
+      #- name: make
+      #  run: ./de/make.sh
 
 
       # Geänderte Datein zurück ins Repository committen
