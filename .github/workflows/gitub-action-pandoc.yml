@@ -46,7 +46,7 @@ jobs:
             --output=./de/lernOS-Template-Guide-de.html
             ./de/src/0_index.md
 
-    # Create eBook Versions (epub)
+      # Create eBook Version (epub)
       - uses: docker://pandoc/core
         with:
           args: >-
@@ -58,6 +58,20 @@ jobs:
             -V
             lang=de-de
             --output=./de/lernOS-Template-Guide-de.epub
+            ./de/src/0_index.md
+
+      # Create PDF Version (pdf)
+      - uses: docker://pandoc/extra
+        with:
+          args: >-
+            ./de/metadata.yaml
+            --standalone
+            --resource-path=./de/src
+            --number-sections
+            --toc
+            -V
+            lang=de-de
+            --output=./de/lernOS-Template-Guide-de.pdf
             ./de/src/0_index.md
 
       # Geänderte Datein zurück ins Repository committen
