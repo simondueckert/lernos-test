@@ -20,7 +20,7 @@ jobs:
 
       # Create Microsoft Word Version (docx)
       - uses: docker://pandoc/latex
-         with:
+        with:
           args: >-
             --resource-path=./de/src
             --output=./de/lernOS-Template-Guide-de.docx
