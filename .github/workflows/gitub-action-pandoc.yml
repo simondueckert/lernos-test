@@ -19,14 +19,14 @@ jobs:
       # tbd.
 
       # Create Microsoft Word Version (docx)
-      # - uses: docker://pandoc/latex
-      #   with:
-      #    args: ""
-      #- name: make
-      #  run: ./de/make.sh
-
+      - uses: docker://pandoc/latex
+         with:
+          args: >-
+            --resource-path=./de/src
+            --output=./de/lernOS-Template-Guide-de.docx
+            ./de/src/0_index.md
 
       # Geänderte Datein zurück ins Repository committen
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Erzeugt von utomatischer lernOS Produktionskette
+          commit_message: Erzeugt von automatischer lernOS Produktionskette
