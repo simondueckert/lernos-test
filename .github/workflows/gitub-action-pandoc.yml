@@ -71,7 +71,7 @@ jobs:
             --toc
             -V
             lang=de-de
-            --template eisvogel
+            --template Eisvogel
             --output=./de/lernOS-Template-Guide-de.pdf
             ./de/src/0_index.md
 
