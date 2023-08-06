@@ -22,6 +22,7 @@ jobs:
       - uses: docker://pandoc/latex
         with:
           args: >-
+            ./de/metadata.yaml
             --standalone
             --resource-path=./de/src
             --number-sections
