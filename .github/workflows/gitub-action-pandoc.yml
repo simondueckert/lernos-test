@@ -11,9 +11,20 @@ jobs:
 
       # Mit Pandoc README.md in README.pdf umwandeln
       # args werden an pandoc-Befehl angehängt
-      - uses: docker://pandoc/latex
-        with:
-          args: "README.md -o README.pdf"
+      # - uses: docker://pandoc/latex
+      #  with:
+      #    args: "README.md -o README.pdf"
+
+      # Delete Old Versions
+      # tbd.
+
+      # Create Microsoft Word Version (docx)
+      # - uses: docker://pandoc/latex
+      #   with:
+      #    args: ""
+
+      ./de/make.sh
+
 
       # Geänderte Datein zurück ins Repository committen
       - uses: stefanzweifel/git-auto-commit-action@v4
