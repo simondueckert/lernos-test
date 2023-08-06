@@ -15,5 +15,5 @@ jobs:
         with:
           args: "README.md -o README.pdf"
 
-      # Alle geänderten Datein zurück ins Repository committen
+      # Geänderte Datein zurück ins Repository committen
       - uses: stefanzweifel/git-auto-commit-action@v4
