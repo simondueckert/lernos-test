@@ -13,6 +13,8 @@ jobs:
       - run: rm -rf ./de/lernOS-Template-Guide-de.*
       - run: rm -rf ./docs/de/*
 
+      # Create Chapter List
+
       # Create Microsoft Word Version (docx)
       - uses: docker://pandoc/core
         with:
