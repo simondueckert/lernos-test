@@ -19,7 +19,7 @@ jobs:
       # tbd.
 
       # Create Microsoft Word Version (docx)
-      - uses: docker://pandoc/latex
+      - uses: docker://pandoc/core
         with:
           args: >-
             ./de/metadata.yaml
@@ -30,6 +30,34 @@ jobs:
             -V
             lang=de-de
             --output=./de/lernOS-Template-Guide-de.docx
+            ./de/src/0_index.md
+
+      # Create HTML Version (html)
+      - uses: docker://pandoc/core
+        with:
+          args: >-
+            ./de/metadata.yaml
+            --standalone
+            --resource-path=./de/src
+            --number-sections
+            --toc
+            -V
+            lang=de-de
+            --output=./de/lernOS-Template-Guide-de.html
+            ./de/src/0_index.md
+
+    # Create eBook Versions (epub)
+      - uses: docker://pandoc/core
+        with:
+          args: >-
+            ./de/metadata.yaml
+            --standalone
+            --resource-path=./de/src
+            --number-sections
+            --toc
+            -V
+            lang=de-de
+            --output=./de/lernOS-Template-Guide-de.epub
             ./de/src/0_index.md
 
       # Geänderte Datein zurück ins Repository committen
