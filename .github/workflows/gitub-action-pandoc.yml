@@ -9,14 +9,8 @@ jobs:
       # Repository auschecken, damit Workflow es nutzen kann
       - uses: actions/checkout@v3
 
-      # Mit Pandoc README.md in README.pdf umwandeln
-      # args werden an pandoc-Befehl angehängt
-      #- uses: docker://pandoc/latex
-      #  with:
-      #   args: "README.md -o README.pdf"
-
       # Delete Old Versions
-      # tbd.
+      - run: rm -rf ./de/lernOS-Template-Guide-de.*
 
       # Create Microsoft Word Version (docx)
       - uses: docker://pandoc/core
