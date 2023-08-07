@@ -5,11 +5,12 @@ on: push
 jobs:
   convert_via_pandoc:
     runs-on: ubuntu-latest
-    container:
-      volumes: ./de:/docs
     steps:
       # Repository auschecken, damit Workflow es nutzen kann
       - uses: actions/checkout@v3
+      
+      # Mount for mkdocs
+      - run: ln -s ./de /docs
 
       # Delete Old Versions
       - run: rm -rf ./de/${{ github.event.repository.name }}-guide.*
