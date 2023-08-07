@@ -15,7 +15,7 @@ jobs:
 
       # Create Chapter List
       - run: echo "files=$(printf '"%s" ' *.md)" > $GITHUB_OUTPUT
-      - run: printf '"%s" ' ./de/src/*.md)" > chapters.txt
+      - run: echo "files=$(printf '"%s" ' *.md)" > chapters.txt
 
       # Create Microsoft Word Version (docx)
       - uses: docker://pandoc/core
