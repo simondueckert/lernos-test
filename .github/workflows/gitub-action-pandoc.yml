@@ -72,10 +72,10 @@ jobs:
             ./de/src/index.md ${{ steps.chapter_list.outputs.chapters }}
 
       # Create Web Version (mkdocs)
-      # - uses: docker://squidfunk/mkdocs-material
-      #   with:
-      #     mkdocs_version: 'latest'
-      #     configfile: '/de/'
+      - uses: docker://squidfunk/mkdocs-material
+        with:
+          mkdocs_version: 'latest'
+          configfile: './de/mkdocs.yml'
 
       # Geänderte Datein zurück ins Repository committen
       - uses: stefanzweifel/git-auto-commit-action@v4
