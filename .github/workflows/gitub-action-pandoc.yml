@@ -75,9 +75,21 @@ jobs:
             ./de/src/index.md ${{ steps.chapter_list.outputs.chapters }}
 
       # Create Web Version (mkdocs)
-      - uses: docker://squidfunk/mkdocs-material
+      #- uses: docker://squidfunk/mkdocs-material
+      #  with:
+      #    mkdocs_version: 'latest'
+
+      - uses: actions/setup-python@v4
         with:
-          mkdocs_version: 'latest'
+          python-version: 3.x
+      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
+      - uses: actions/cache@v3
+        with:
+          key: mkdocs-material-${{ env.cache_id }}
+          path: .cache
+          restore-keys: |
+            mkdocs-material-
+      - run: pip install mkdocs-material
 
       # Geänderte Datein zurück ins Repository committen
       - uses: stefanzweifel/git-auto-commit-action@v4
