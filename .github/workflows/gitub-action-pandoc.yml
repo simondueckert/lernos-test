@@ -13,7 +13,8 @@ jobs:
       - run: rm -rf ./de/lernOS-Template-Guide-de.*
       - run: rm -rf ./docs/de/*
 
-      # Create Chapter List test
+      # Create Chapter List
+      - run: echo "files=$(printf '"%s" ' *.md)" > $GITHUB_OUTPUT
 
       # Create Microsoft Word Version (docx)
       - uses: docker://pandoc/core
@@ -27,7 +28,7 @@ jobs:
             -V
             lang=de-de
             --output=./de/lernOS-Template-Guide-de.docx
-            ./de/src/0_index.md
+            ${{ steps.files_list.outputs.files }}
 
       # Create HTML Version (html)
       - uses: docker://pandoc/core
