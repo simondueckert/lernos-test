@@ -9,9 +9,6 @@ jobs:
       # Repository auschecken, damit Workflow es nutzen kann
       - uses: actions/checkout@v3
       
-      # Mount for mkdocs
-      - run: ln -s ./de /docs
-
       # Delete Old Versions
       - run: rm -rf ./de/${{ github.event.repository.name }}-guide.*
       - run: rm -rf ./docs/de/*
@@ -90,6 +87,7 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install mkdocs-material
+      - run: mkdocs build -f ./de/mkdocs.yml
 
       # Geänderte Datein zurück ins Repository committen
       - uses: stefanzweifel/git-auto-commit-action@v4
