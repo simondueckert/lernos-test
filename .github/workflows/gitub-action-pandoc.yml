@@ -14,7 +14,7 @@ jobs:
       - run: rm -rf ./docs/de/*
 
       # Create Chapter List
-      - run: echo "files=$(printf '"%s" ' ./de/src/*.md)" > $GITHUB_OUTPUT
+      - run: echo "files=$(printf '"%s" ' ./de/src/*.md)" >> "$GITHUB_OUTPUT"
       - run: echo "files=$(printf '"%s" ' ./de/src/*.md)" > chapters.txt
 
       # Create Microsoft Word Version (docx)
