@@ -14,7 +14,9 @@ jobs:
       - run: rm -rf ./docs/de/*
 
       # Create Chapter List
-      - run: echo "files=$(printf '%s ' ./de/src/*.md)" >> "$GITHUB_OUTPUT"
+      - name: Create Chapter List
+        id: chapter_list
+        run: echo "files=$(printf '%s ' ./de/src/*.md)" >> "$GITHUB_OUTPUT"
       - run: echo "files=$(printf '%s ' ./de/src/*.md)" > chapters.txt
 
       # Create Microsoft Word Version (docx)
@@ -28,7 +30,7 @@ jobs:
             --toc
             -V lang=de-de
             --output=./de/lernOS-Template-Guide-de.docx
-            ${{ steps.files_list.outputs.files }}
+            ${{ steps.chapter_list.outputs.files }}
 
       # Create HTML Version (html)
       - uses: docker://pandoc/core
