@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v3
 
       # Delete Old Versions
-      - run: rm -rf ./de/lernOS-Template-Guide-de.*
+      - run: rm -rf ./de/${{ github.event.repository.name }}-guide.*
       - run: rm -rf ./docs/de/*
 
       # Create Chapter List
@@ -28,7 +28,7 @@ jobs:
             --number-sections
             --toc
             -V lang=de-de
-            --output=./de/${{ github.event.repository.name }}.docx
+            --output=./de/${{ github.event.repository.name }}-guide.docx
             ${{ steps.chapter_list.outputs.chapters }}
 
       # Create HTML Version (html)
@@ -41,7 +41,7 @@ jobs:
             --number-sections
             --toc
             -V lang=de-de
-            --output=./de/lernOS-Template-Guide-de.html
+            --output=./de/${{ github.event.repository.name }}-guide.html
             ${{ steps.chapter_list.outputs.chapters }}
 
       # Create eBook Version (epub)
@@ -54,7 +54,7 @@ jobs:
             --number-sections
             --toc
             -V lang=de-de
-            --output=./de/lernOS-Template-Guide-de.epub
+            --output=./de/${{ github.event.repository.name }}-guide.epub
             ${{ steps.chapter_list.outputs.chapters }}
 
       # Create PDF Version (pdf)
@@ -68,7 +68,7 @@ jobs:
             --toc
             -V lang=de-de
             --template /.pandoc/templates/eisvogel.latex
-            --output=./de/lernOS-Template-Guide-de.pdf
+            --output=./de/${{ github.event.repository.name }}-guide.pdf
             ${{ steps.chapter_list.outputs.chapters }}
 
       # Create Web Version (mkdocs)
