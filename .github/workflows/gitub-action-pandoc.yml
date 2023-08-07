@@ -29,7 +29,7 @@ jobs:
             --toc
             -V lang=de-de
             --output=./de/${{ github.event.repository.name }}-guide.docx
-            ${{ steps.chapter_list.outputs.chapters }}
+            ./de/src/index.md ${{ steps.chapter_list.outputs.chapters }}
 
       # Create HTML Version (html)
       - uses: docker://pandoc/core
@@ -42,7 +42,7 @@ jobs:
             --toc
             -V lang=de-de
             --output=./de/${{ github.event.repository.name }}-guide.html
-            ${{ steps.chapter_list.outputs.chapters }}
+            ./de/src/index.md ${{ steps.chapter_list.outputs.chapters }}
 
       # Create eBook Version (epub)
       - uses: docker://pandoc/core
@@ -55,7 +55,7 @@ jobs:
             --toc
             -V lang=de-de
             --output=./de/${{ github.event.repository.name }}-guide.epub
-            ${{ steps.chapter_list.outputs.chapters }}
+            ./de/src/index.md ${{ steps.chapter_list.outputs.chapters }}
 
       # Create PDF Version (pdf)
       - uses: docker://pandoc/extra
@@ -69,7 +69,7 @@ jobs:
             -V lang=de-de
             --template /.pandoc/templates/eisvogel.latex
             --output=./de/${{ github.event.repository.name }}-guide.pdf
-            ${{ steps.chapter_list.outputs.chapters }}
+            ./de/src/index.md ${{ steps.chapter_list.outputs.chapters }}
 
       # Create Web Version (mkdocs)
       # - uses: docker://squidfunk/mkdocs-material
