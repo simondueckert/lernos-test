@@ -28,7 +28,7 @@ jobs:
             --number-sections
             --toc
             -V lang=de-de
-            --output=./de/lernOS-Template-Guide-de.docx
+            --output=./de/${{ github.event.repository.name }}.docx
             ${{ steps.chapter_list.outputs.chapters }}
 
       # Create HTML Version (html)
