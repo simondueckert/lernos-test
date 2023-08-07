@@ -15,6 +15,7 @@ jobs:
 
       # Create Chapter List
       - run: echo "files=$(printf '"%s" ' ./de/src/*.md)" > $GITHUB_OUTPUT
+      - run: echo "files=$(printf '"%s" ' ./de/src/*.md)" > $GITHUB_OUTPUT > chapters.txt
 
       # Create Microsoft Word Version (docx)
       - uses: docker://pandoc/core
@@ -25,8 +26,7 @@ jobs:
             --resource-path=./de/src
             --number-sections
             --toc
-            -V
-            lang=de-de
+            -V lang=de-de
             --output=./de/lernOS-Template-Guide-de.docx
             ${{ steps.files_list.outputs.files }}
 
@@ -39,8 +39,7 @@ jobs:
             --resource-path=./de/src
             --number-sections
             --toc
-            -V
-            lang=de-de
+            -V lang=de-de
             --output=./de/lernOS-Template-Guide-de.html
             ./de/src/0_index.md
 
@@ -53,8 +52,7 @@ jobs:
             --resource-path=./de/src
             --number-sections
             --toc
-            -V
-            lang=de-de
+            -V lang=de-de
             --output=./de/lernOS-Template-Guide-de.epub
             ./de/src/0_index.md
 
@@ -67,8 +65,7 @@ jobs:
             --resource-path=./de/src
             --number-sections
             --toc
-            -V
-            lang=de-de
+            -V lang=de-de
             --template /.pandoc/templates/eisvogel.latex
             --output=./de/lernOS-Template-Guide-de.pdf
             ./de/src/0_index.md
