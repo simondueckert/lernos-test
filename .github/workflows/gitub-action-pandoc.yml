@@ -16,8 +16,7 @@ jobs:
       # Create Chapter List
       - name: Create Chapter List
         id: chapter_list
-        run: echo "files=$(printf '%s ' ./de/src/*.md)" >> "$GITHUB_OUTPUT"
-      - run: echo "files=$(printf '%s ' ./de/src/*.md)" > chapters.txt
+        run: echo "chapters=$(printf '%s ' ./de/src/*.md)" >> "$GITHUB_OUTPUT"
 
       # Create Microsoft Word Version (docx)
       - uses: docker://pandoc/core
@@ -43,7 +42,7 @@ jobs:
             --toc
             -V lang=de-de
             --output=./de/lernOS-Template-Guide-de.html
-            ./de/src/0_index.md
+            ${{ steps.chapter_list.outputs.files }}
 
       # Create eBook Version (epub)
       - uses: docker://pandoc/core
@@ -56,7 +55,7 @@ jobs:
             --toc
             -V lang=de-de
             --output=./de/lernOS-Template-Guide-de.epub
-            ./de/src/0_index.md
+            ${{ steps.chapter_list.outputs.files }}
 
       # Create PDF Version (pdf)
       - uses: docker://pandoc/extra
@@ -70,7 +69,7 @@ jobs:
             -V lang=de-de
             --template /.pandoc/templates/eisvogel.latex
             --output=./de/lernOS-Template-Guide-de.pdf
-            ./de/src/0_index.md
+            ${{ steps.chapter_list.outputs.files }}
 
       # Create Web Version (mkdocs)
       # - uses: docker://squidfunk/mkdocs-material
