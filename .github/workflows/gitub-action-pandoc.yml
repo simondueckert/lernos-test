@@ -16,10 +16,7 @@ jobs:
       # Create Chapter List
       - name: Create Chapter List
         id: chapter_list
-        run: echo "chapters=$(printf '%s ' ./de/src/*.md)" >> "$GITHUB_OUTPUT"
-
-      # Copy Index Chapter
-      - run: cp ./de/src/0_index.md ./de/src/index.md
+        run: echo "chapters=$(printf '%s ' ./de/src/[0-9]*.md)" >> "$GITHUB_OUTPUT"
       
       # Create Microsoft Word Version (docx)
       - uses: docker://pandoc/core
