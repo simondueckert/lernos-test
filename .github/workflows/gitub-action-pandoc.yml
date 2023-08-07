@@ -5,7 +5,8 @@ on: push
 jobs:
   convert_via_pandoc:
     runs-on: ubuntu-latest
-    volumes: ./de:/docs
+    container:
+      volumes: ./de:/docs
     steps:
       # Repository auschecken, damit Workflow es nutzen kann
       - uses: actions/checkout@v3
