@@ -18,6 +18,9 @@ jobs:
         id: chapter_list
         run: echo "chapters=$(printf '%s ' ./de/src/*.md)" >> "$GITHUB_OUTPUT"
 
+      # Copy Index Chapter
+      - run: cp ./de/src/0_index.md ./de/src/index.md
+      
       # Create Microsoft Word Version (docx)
       - uses: docker://pandoc/core
         with:
