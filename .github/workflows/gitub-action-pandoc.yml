@@ -72,10 +72,6 @@ jobs:
             ./de/src/index.md ${{ steps.chapter_list.outputs.chapters }}
 
       # Create Web Version (mkdocs)
-      #- uses: docker://squidfunk/mkdocs-material
-      #  with:
-      #    mkdocs_version: 'latest'
-
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
