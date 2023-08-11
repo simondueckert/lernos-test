@@ -1,4 +1,4 @@
-name: Translate locales json
+name: Translate Readme
 on:
   workflow_dispatch
 
