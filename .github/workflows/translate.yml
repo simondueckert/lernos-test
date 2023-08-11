@@ -9,7 +9,7 @@ jobs:
       - name: DeepL Translate Github Action
         uses: lyqht/deepl-translate-github-action@v2.1.0
         with:
-          target_languages: EN-US,ZH,ES,FR,RU,PT-PT
+          target_languages: EN-US,ZH,ES,FR,PT-PT
           input_file_path: README.md
           output_file_name_pattern: README-{language}.md
           deepl_api_key: ${{ secrets.DEEPL_API_KEY }}
